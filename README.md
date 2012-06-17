@@ -203,7 +203,13 @@ you can change the eventName parameter to any other color and you can see how th
 
 ## Step 3: Create the Jquery Mobile interface
 
-For this tutorial, we use [jQuery mobile](http://jquerymobile.com) to build an interface to interact with our application. For that, first we need to creat an applicatin interface using the jquerymobile library. Luckiliy jQuery mobile has an interactive WYSIWG editor to create such an interface available on their website. I used this editor and generated an interface for our application:
+For this tutorial, we use [jQuery mobile](http://jquerymobile.com) to build an interface to interact with our application. For that, first we need to creat an applicatin interface using the jquerymobile library. Luckiliy jQuery mobile has an interactive WYSIWG editor to create such an interface available on their website. 
+
+![jQuery mobile editor](https://github.com/hmrtk/Coffeshop-HTML5-jQuery-Mobile-Tutorial/blob/master/images/2.PNG?raw=true)
+
+I used this editor and generated an interface for our application:
+
+![Tutorial app jquery mobile interface](https://github.com/hmrtk/Coffeshop-HTML5-jQuery-Mobile-Tutorial/blob/master/images/1.PNG?raw=true)
 
 mobile/index.html
 
@@ -298,4 +304,12 @@ if ($handle) {
 ## Step 4: Setup application on the coffeshop framework
 
 To setup the application on the coffeeshop framework, we need to create a new application on the coffeshop framework mainpage.
-![logo](https://github.com/hmrtk/Coffeshop-HTML5-jQuery-Mobile-Tutorial/blob/master/images/1.PNG?raw=true)
+
+![Creating a new application of Coffeeshop](https://github.com/hmrtk/Coffeshop-HTML5-jQuery-Mobile-Tutorial/blob/master/images/3.PNG?raw=true)
+
+
+Then we need to fillup the form for creating the new application:
+
+![New application settings](https://github.com/hmrtk/Coffeshop-HTML5-jQuery-Mobile-Tutorial/blob/master/images/4.PNG?raw=true)
+
+
