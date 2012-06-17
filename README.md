@@ -203,3 +203,96 @@ you can change the eventName parameter to any other color and you can see how th
 
 ## Step 3: Create the Jquery Mobile interface
 
+For this tutorial, we use [jQuery mobile](http://jquerymobile.com) to build an interface to interact with our application. For that, first we need to creat an applicatin interface using the jquerymobile library. Luckiliy jQuery mobile has an interactive WYSIWG editor to create such an interface available on their website. I used this editor and generated an interface for our application:
+
+mobile/index.html
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>
+        </title>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+        <link rel="stylesheet" href="my.css" />
+        <style>
+            /* App custom styles */
+        </style>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
+        </script>
+        <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js">
+        </script>
+    </head>
+    <body>
+        <div data-role="page" id="page1">
+            <div data-theme="b" data-role="header" data-position="fixed">
+                <h3>
+                    Tutorial Sample App
+                </h3>
+            </div>
+            <div data-role="content" style="padding: 15px">
+                <a id="test1" class="appbutton" data-role="button" data-ajax="false" data-transition="fade" data-theme="e" value="Yellow">
+                    Yellow
+                </a>
+                <a class="appbutton" data-role="button" data-transition="fade" data-theme="b" value="Blue">
+                    Blue
+                </a>
+                <a class="appbutton" data-role="button" data-transition="fade" data-theme="a" value="Black">
+                    Black
+                </a>
+		<div id="resultLog"></div>
+            </div>
+        </div>
+        <script>
+        $(function() {
+ 
+            $(".appbutton").click(function() {
+
+		     $.ajax({
+		      type: "GET",
+		      url: "event.php",
+		      data: ({event: $(this).attr('value')}),
+		      cache: false,
+		      dataType: "XML",
+		      success: onSuccess
+		    });
+
+            }); 
+            function onSuccess(data)
+            {
+                $("#resultLog").html("Command Sent: " + data);
+            }
+        });
+        </script>
+    </body>
+</html>
+```
+
+What this code does is that it creates three buttons on the screen. A color name is assigned to the value attribute of each buttons elements. In the jquery function, once the page is loaded a request is sent to event.php page sending this color value as parameter. The event.php page simply triggers gets the color name by get method and sends a request to OSGiBroker server for triggering an even with the color name on the application.
+
+event.php
+
+```php
+<?php
+// Set your return content type
+//header('Content-type: application/xml');
+
+$daurl = "http://localhost:8800/osgibroker/event?topic=tutorial&clientID=tutorial&_method=POST&eventName=".$_GET['event'];
+echo $daurl;
+
+// Get that website's content
+$handle = fopen($daurl, "r");
+
+// If there is something, read and return
+if ($handle) {
+    while (!feof($handle)) {
+        $buffer = fgets($handle, 4096);
+        echo $buffer;
+    }
+    fclose($handle);
+}
+?>
+```
+
