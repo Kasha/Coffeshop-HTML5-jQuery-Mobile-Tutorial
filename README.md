@@ -295,4 +295,7 @@ if ($handle) {
 }
 ?>
 ```
+## Step 4: Setup application on the coffeshop framework
 
+To setup the application on the coffeeshop framework, we need to create a new application on the coffeshop framework mainpage.
+![logo](https://github.com/hmrtk/Coffeshop-HTML5-jQuery-Mobile-Tutorial/blob/master/images/1.PNG?raw=true)
