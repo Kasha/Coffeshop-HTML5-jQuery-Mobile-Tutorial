@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+  <head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script>
+	function changeBGColor(colorname){
+		switch(colorname)
+		{
+		case "black":
+		  $("body").css("background-color","black");
+		  break;
+		case "red":
+		  $("body").css("background-color","red");
+		  break;
+		case "yellow":
+		  $("body").css("background-color","yellow");
+		  break;
+		default:
+
+		}
+	}
+  </script>
+  </head>
+  <body>
+  </body>
+</html>
