@@ -15,7 +15,8 @@
 		  $("body").css("background-color","yellow");
 		  break;
 		default:
-
+		  $("body").css("background-color","purple");
+		  break;
 		}
 	}
   </script>

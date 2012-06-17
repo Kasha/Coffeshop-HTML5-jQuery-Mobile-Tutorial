@@ -1,10 +1,13 @@
 # How to make an application for Coffeeshop framework using jQuerymobile, HTML5, PHP and Osgibroker
 
+Each step of this tutorial is separated in different directory.
 
 ## Step 1: Creating a HTML5 page with basic jquery functionalities
 
-The goal of this step is to to crate a simple HTML5 page and enable users to change the background color of the Body element by calling a javascript function. 
-For that I start by creating a simple HTML page with basic HTML elements of HTML, HEAD and BODY. I created the index.html page inside the large folder. The code for this step is as follow:
+### Objective:
+1. create a simple HTML5 page and enable users to change the background color of the Body element by calling a javascript function
+
+I start by creating a simple HTML page with basic HTML elements of HTML, HEAD and BODY. I created the index.html page inside the large folder. The code for this step is as follow:
 
 ```html
 <!DOCTYPE html>
@@ -24,7 +27,7 @@ For that I start by creating a simple HTML page with basic HTML elements of HTML
 		  $("body").css("background-color","yellow");
 		  break;
 		default:
-		  $("body").css("background-color","purple");
+		  $("body").css("background-color",colorname);
 		  break;
 		}
 	}
@@ -34,6 +37,20 @@ For that I start by creating a simple HTML page with basic HTML elements of HTML
   </body>
 </html>
 ```
+
+Here as you can see in the code, line 3 loads the jQuery javascript library into the page and below that is a simple funciton that accepts the colorname parameter and changes the body tag backgroud-color using a switch statement.
+
+To interact with the page you can simply use the develeoper tools of the chrome browser. Open index.html using chrome and open the developer tools by tools -> developer tools (CTRL+SHIFT+J). In the console type the following;
+
+```javascript
+changeBGColor("red");
+```
+You can see that the background color of the page changes based on the input of the changeBGColor.
+## Step 2: User Osgibroker to interact with the Application HTML page
+
+### Objectives: 
+1. Use ogibroker interface to interact with the application
+2. Trigger an event on the application using the Ogibroker interface
 
 
 
