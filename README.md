@@ -1,6 +1,6 @@
 # How to make an application for Coffeeshop framework using jQuerymobile, HTML5, PHP and Osgibroker
 
-Each step of this tutorial is separated in different directory.
+Each step of this tutorial is separated in different directory under the git repository for this project.
 
 * [Step 1: Creating a HTML5 page with basic jquery functionalities](#step-1-creating-a-html5-page-with-basic-jquery-functionalities)
 * [Step 2: Use Osgibroker to interact with the HTML page](#step-2-use-osgibroker-to-interact-with-the-html-page)
