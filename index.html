@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Coffeeshop HTML5 tutorial : How to make an application for Coffeeshop framework using jQuerymobile, HTML5, PHP and Osgibroker" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Coffeeshop HTML5 tutorial</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/hmrtk/Coffeshop-HTML5-jQuery-Mobile-Tutorial">View on GitHub</a>
+
+          <h1 id="project_title">Coffeeshop HTML5 tutorial</h1>
+          <h2 id="project_tagline">How to make an application for Coffeeshop framework using jQuerymobile, HTML5, PHP and Osgibroker</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/hmrtk/Coffeshop-HTML5-jQuery-Mobile-Tutorial/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/hmrtk/Coffeshop-HTML5-jQuery-Mobile-Tutorial/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>Each step of this tutorial is separated in different directory under the git repository for this project.</p>
+
+<ul>
+<li><a href="#step-1-creating-a-html5-page-with-basic-jquery-functionalities">Step 1: Creating a HTML5 page with basic jquery functionalities</a></li>
+<li><a href="#step-2-use-osgibroker-to-interact-with-the-html-page">Step 2: Use Osgibroker to interact with the HTML page</a></li>
+<li><a href="#step-3-create-the-jquery-mobile-interface">Step 3: Create the Jquery Mobile interface</a></li>
+<li><a href="#step-4-setup-application-on-the-coffeshop-framework">Step 4: Setup application on the coffeshop framework</a></li>
+</ul><h2>Step 1: Creating a HTML5 page with basic jquery functionalities</h2>
+
+<h3>Objective:</h3>
+
+<ol>
+<li>create a simple HTML5 page and enable users to change the background color of the Body element by calling a JavaScript function</li>
+</ol><p>I start by creating a simple HTML page with basic HTML elements of HTML, HEAD and BODY. I created the index.html page inside the large folder. The code for this step is as follow:</p>
+
+<div class="highlight">
+<pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+    <span class="kd">function</span> <span class="nx">changeBGColor</span><span class="p">(</span><span class="nx">colorname</span><span class="p">){</span>
+        <span class="k">switch</span><span class="p">(</span><span class="nx">colorname</span><span class="p">)</span>
+        <span class="p">{</span>
+        <span class="k">case</span> <span class="s2">"black"</span><span class="o">:</span>
+          <span class="nx">$</span><span class="p">(</span><span class="s2">"body"</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">"background-color"</span><span class="p">,</span><span class="s2">"black"</span><span class="p">);</span>
+          <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="s2">"red"</span><span class="o">:</span>
+          <span class="nx">$</span><span class="p">(</span><span class="s2">"body"</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">"background-color"</span><span class="p">,</span><span class="s2">"red"</span><span class="p">);</span>
+          <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="s2">"yellow"</span><span class="o">:</span>
+          <span class="nx">$</span><span class="p">(</span><span class="s2">"body"</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">"background-color"</span><span class="p">,</span><span class="s2">"yellow"</span><span class="p">);</span>
+          <span class="k">break</span><span class="p">;</span>
+        <span class="k">default</span><span class="o">:</span>
+          <span class="nx">$</span><span class="p">(</span><span class="s2">"body"</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">"background-color"</span><span class="p">,</span><span class="nx">colorname</span><span class="p">);</span>
+          <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre>
+</div>
+
+
+<p>Here as you can see in the code, line 3 loads the jQuery javascript library into the page and below that is a simple function that accepts the colorname parameter and changes the body tag backgroud-color using a switch statement.</p>
+
+<p>To interact with the page you can simply use the developer tools of the chrome browser. Open index.html using chrome and open the developer tools by tools -&gt; developer tools (CTRL+SHIFT+J). In the console type the following;</p>
+
+<div class="highlight">
+<pre><span class="nx">changeBGColor</span><span class="p">(</span><span class="s2">"red"</span><span class="p">);</span>
+</pre>
+</div>
+
+
+<p>You can see that the background color of the page changes based on the input of the changeBGColor.</p>
+
+<h2>Step 2: Use Osgibroker to interact with the HTML page</h2>
+
+<h3>Objectives:</h3>
+
+<ol>
+<li>Use ogibroker interface to interact with the application</li>
+<li>Trigger an event on the Tutorial application using the Ogibroker interface</li>
+</ol><p>To  interact with the application we use the OSGiBroker. OSGiBroker enables developers to easily implment communication between two applications using their REST API. To read more about OSGiBroker on their website <a href="http://www.magic.ubc.ca/wiki/pmwiki.php/OSGiBroker/OSGiBrokerOverview">OSGiBroker</a>.</p>
+
+<p>The OSGiBroker has to be installed on the system, you can read more about how to install the OSGiBroker on ( <a href="http://www.magic.ubc.ca/wiki/pmwiki.php/OSGiBroker/Installation">installation guid</a> ).</p>
+
+<p>To implement the communication between our application and another application we need to use the OSGiBroker REST API. There is a complete instruction on how to use this API found <a href="http://magic.ubc.ca/wiki/pmwiki.php/OSGiBroker/Osgibroker-rest">here</a>. </p>
+
+<p>First the application has to be subscribed on the OSGiBroker server on the machine. We can directly go on the link bellow to subscribe to our tutorial application:</p>
+
+<pre><code>http://localhost:8800/osgibroker/subscribe?topic=tutorial&amp;clientID=tutorial
+</code></pre>
+
+<p>The two parameters topic and clientID defines the application name and client who used the application. These two parameters have to be sent to http://localhost:8800/osgibroker/subscribe to properly register the application. We can automatically subscribe to the application everytime the page loads by asynchronously loading this URL in our tutorial application using an ajax call.</p>
+
+<p>Next, we need to see how we can trigger an event on the OSGiBRoker. For that we can use the URL below:</p>
+
+<pre><code>http://localhost:8800/osgibroker/event?topic=tutorial&amp;clientID=tutorial&amp;_method=POST&amp;eventName=blue
+</code></pre>
+
+<p>In this url we can trigger an event for the tutorial application on the OSGiBroker by assigning the event's name to the eventName parameter in the URL above. When this URL is requested from the OSGiBroker server the following response is sent to the browser indicating that the event is successfully triggered for the tutorial application.</p>
+
+<div class="highlight">
+<pre><span class="nt">&lt;event</span> <span class="na">timestamp=</span><span class="s">"1339967009799"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;topic&gt;</span>tutorial<span class="nt">&lt;/topic&gt;</span>
+<span class="nt">&lt;clientID&gt;</span>tutorial<span class="nt">&lt;/clientID&gt;</span>
+<span class="nt">&lt;eventName&gt;</span>blue<span class="nt">&lt;/eventName&gt;</span>
+<span class="nt">&lt;_method&gt;</span>POST<span class="nt">&lt;/_method&gt;</span>
+<span class="nt">&lt;/event&gt;</span>
+</pre>
+</div>
+
+
+<p>Once this event is triggered, it remains on the server for the tutorial application, until the event is retrieved from the application using the URL below:</p>
+
+<pre><code>http://localhost:8800/osgibroker/event?topic=tutorial&amp;clientID=tutorial&amp;timeOut=1
+</code></pre>
+
+<p>And the response is:</p>
+
+<div class="highlight">
+<pre><span class="nt">&lt;events&gt;</span>
+<span class="nt">&lt;event</span> <span class="na">timestamp=</span><span class="s">"1339970751526"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;topic&gt;</span>tutorial<span class="nt">&lt;/topic&gt;</span>
+<span class="nt">&lt;clientID&gt;</span>tutorial<span class="nt">&lt;/clientID&gt;</span>
+<span class="nt">&lt;eventName&gt;</span>blue<span class="nt">&lt;/eventName&gt;</span>
+<span class="nt">&lt;_method&gt;</span>POST<span class="nt">&lt;/_method&gt;</span>
+<span class="nt">&lt;/event&gt;</span>
+<span class="nt">&lt;/events&gt;</span>
+</pre>
+</div>
+
+
+<p>We can get the triggered event from the OSGiBroker server and handle it on the application.</p>
+
+<p>Now we have figured out how the OSGiBroker works and how to subscribe the application and triger an even. Next we are going to implement subscribing the Tutorial application on the OSGiBroker and handling events from OSGiBroker on our application.</p>
+
+<p>For that we need two separate php files: subscribe.php and event.php. Codes for the two files are provided below:</p>
+
+<p>subscribe.php</p>
+
+<div class="highlight">
+<pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$daurl</span> <span class="o">=</span> <span class="s1">'http://localhost:8800/osgibroker/subscribe?topic=tutorial&amp;clientID=tutorial'</span><span class="p">;</span>
+
+<span class="c1">// Get that website's content</span>
+<span class="nv">$handle</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nv">$daurl</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">);</span>
+
+<span class="c1">// If there is something, read and return</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$handle</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="nb">feof</span><span class="p">(</span><span class="nv">$handle</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nv">$buffer</span> <span class="o">=</span> <span class="nb">fgets</span><span class="p">(</span><span class="nv">$handle</span><span class="p">,</span> <span class="mi">4096</span><span class="p">);</span>
+        <span class="k">echo</span> <span class="nv">$buffer</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nb">fclose</span><span class="p">(</span><span class="nv">$handle</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre>
+</div>
+
+
+<p>event.php</p>
+
+<div class="highlight">
+<pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$daurl</span> <span class="o">=</span> <span class="s1">'http://localhost:8800/osgibroker/event?topic=tutorial&amp;clientID=tutorial&amp;timeOut=1'</span><span class="p">;</span>
+
+<span class="c1">// Get that website's content</span>
+<span class="nv">$handle</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nv">$daurl</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">);</span>
+
+<span class="c1">// If there is something, read and return</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$handle</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="nb">feof</span><span class="p">(</span><span class="nv">$handle</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nv">$buffer</span> <span class="o">=</span> <span class="nb">fgets</span><span class="p">(</span><span class="nv">$handle</span><span class="p">,</span> <span class="mi">4096</span><span class="p">);</span>
+        <span class="k">echo</span> <span class="nv">$buffer</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nb">fclose</span><span class="p">(</span><span class="nv">$handle</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre>
+</div>
+
+
+<p>Now we need to modify the index.html</p>
+
+<div class="highlight">
+<pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+        <span class="c1">//subscribe the tutorial application to the tutorial topic</span>
+        <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">"GET"</span><span class="p">,</span> <span class="nx">url</span><span class="o">:</span> <span class="s2">"subscribe.php"</span><span class="p">,</span> <span class="nx">dataType</span><span class="o">:</span> <span class="s2">"xml"</span><span class="p">,</span> <span class="nx">success</span><span class="o">:</span> <span class="nx">messageParser</span> <span class="p">});</span>
+
+        <span class="c1">//retreive events and parse them.</span>
+        <span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">"GET"</span><span class="p">,</span> <span class="nx">url</span><span class="o">:</span> <span class="s2">"event.php"</span><span class="p">,</span> <span class="nx">dataType</span><span class="o">:</span> <span class="s2">"xml"</span><span class="p">,</span> <span class="nx">success</span><span class="o">:</span> <span class="nx">messageParser</span> <span class="p">});</span>     
+            <span class="p">},</span> <span class="mi">2000</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="c1">//using this parser we will get the events and add them to the DOM</span>
+    <span class="kd">function</span> <span class="nx">messageParser</span><span class="p">(</span><span class="nx">xml</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$</span><span class="p">(</span><span class="nx">xml</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s2">"event"</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">color</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s2">"eventName"</span><span class="p">).</span><span class="nx">text</span><span class="p">();</span>
+            <span class="nx">changeBGColor</span><span class="p">(</span><span class="nx">color</span><span class="p">);</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">changeBGColor</span><span class="p">(</span><span class="nx">colorname</span><span class="p">){</span>
+        <span class="k">switch</span><span class="p">(</span><span class="nx">colorname</span><span class="p">)</span>
+        <span class="p">{</span>
+        <span class="k">case</span> <span class="s2">"black"</span><span class="o">:</span>
+          <span class="nx">$</span><span class="p">(</span><span class="s2">"body"</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">"background-color"</span><span class="p">,</span><span class="s2">"black"</span><span class="p">);</span>
+          <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="s2">"red"</span><span class="o">:</span>
+          <span class="nx">$</span><span class="p">(</span><span class="s2">"body"</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">"background-color"</span><span class="p">,</span><span class="s2">"red"</span><span class="p">);</span>
+          <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="s2">"yellow"</span><span class="o">:</span>
+          <span class="nx">$</span><span class="p">(</span><span class="s2">"body"</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">"background-color"</span><span class="p">,</span><span class="s2">"yellow"</span><span class="p">);</span>
+          <span class="k">break</span><span class="p">;</span>
+        <span class="k">default</span><span class="o">:</span>
+          <span class="nx">$</span><span class="p">(</span><span class="s2">"body"</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">"background-color"</span><span class="p">,</span><span class="nx">colorname</span><span class="p">);</span>
+          <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre>
+</div>
+
+
+<p>Line 7 uses the ajax function of the jquery library to send an asynchronous request to subscribe.php. In line 10, we set an interval to send a request to OSGiBroker looking for any available event. If there is any event in the response of this request, then it can get handled using the messageParse.</p>
+
+<p>We can try this code by using the URL below:</p>
+
+<pre><code>http://localhost:8800/osgibroker/event?topic=tutorial&amp;clientID=tutorial&amp;_method=POST&amp;eventName=blue
+</code></pre>
+
+<p>you can change the eventName parameter to any other color and you can see how the application handles these different events.</p>
+
+<h2>Step 3: Create the Jquery Mobile interface</h2>
+
+<p>For this tutorial, we use <a href="http://jquerymobile.com">jQuery mobile</a> to build an interface to interact with our application. For that, first we need to create an application interface using the jquerymobile library. Luckily jQuery mobile has an interactive WYSIWG editor to create such an interface available on their website. </p>
+
+<p><img src="https://github.com/hmrtk/Coffeshop-HTML5-jQuery-Mobile-Tutorial/blob/master/images/2.PNG?raw=true" alt="jQuery mobile editor"></p>
+
+<p>I used this editor and generated an interface for our application:</p>
+
+<p><img src="https://github.com/hmrtk/Coffeshop-HTML5-jQuery-Mobile-Tutorial/blob/master/images/1.PNG?raw=true" alt="Tutorial app jquery mobile interface"></p>
+
+<p>mobile/index.html</p>
+
+<div class="highlight">
+<pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;title&gt;</span>
+        <span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"my.css"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;style&gt;</span>
+            <span class="c">/* App custom styles */</span>
+        <span class="nt">&lt;/style&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/script&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/script&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">data-role=</span><span class="s">"page"</span> <span class="na">id=</span><span class="s">"page1"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">data-theme=</span><span class="s">"b"</span> <span class="na">data-role=</span><span class="s">"header"</span> <span class="na">data-position=</span><span class="s">"fixed"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;h3&gt;</span>
+                    Tutorial Sample App
+                <span class="nt">&lt;/h3&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">data-role=</span><span class="s">"content"</span> <span class="na">style=</span><span class="s">"padding: 15px"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">id=</span><span class="s">"test1"</span> <span class="na">class=</span><span class="s">"appbutton"</span> <span class="na">data-role=</span><span class="s">"button"</span> <span class="na">data-ajax=</span><span class="s">"false"</span> <span class="na">data-transition=</span><span class="s">"fade"</span> <span class="na">data-theme=</span><span class="s">"e"</span> <span class="na">value=</span><span class="s">"Yellow"</span><span class="nt">&gt;</span>
+                    Yellow
+                <span class="nt">&lt;/a&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"appbutton"</span> <span class="na">data-role=</span><span class="s">"button"</span> <span class="na">data-transition=</span><span class="s">"fade"</span> <span class="na">data-theme=</span><span class="s">"b"</span> <span class="na">value=</span><span class="s">"Blue"</span><span class="nt">&gt;</span>
+                    Blue
+                <span class="nt">&lt;/a&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"appbutton"</span> <span class="na">data-role=</span><span class="s">"button"</span> <span class="na">data-transition=</span><span class="s">"fade"</span> <span class="na">data-theme=</span><span class="s">"a"</span> <span class="na">value=</span><span class="s">"Black"</span><span class="nt">&gt;</span>
+                    Black
+                <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"resultLog"</span><span class="nt">&gt;&lt;/div&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;script&gt;</span>
+        <span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+            <span class="nx">$</span><span class="p">(</span><span class="s2">".appbutton"</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+             <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+              <span class="nx">type</span><span class="o">:</span> <span class="s2">"GET"</span><span class="p">,</span>
+              <span class="nx">url</span><span class="o">:</span> <span class="s2">"event.php"</span><span class="p">,</span>
+              <span class="nx">data</span><span class="o">:</span> <span class="p">({</span><span class="nx">event</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'value'</span><span class="p">)}),</span>
+              <span class="nx">cache</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+              <span class="nx">dataType</span><span class="o">:</span> <span class="s2">"XML"</span><span class="p">,</span>
+              <span class="nx">success</span><span class="o">:</span> <span class="nx">onSuccess</span>
+            <span class="p">});</span>
+
+            <span class="p">});</span> 
+            <span class="kd">function</span> <span class="nx">onSuccess</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="nx">$</span><span class="p">(</span><span class="s2">"#resultLog"</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s2">"Command Sent: "</span> <span class="o">+</span> <span class="nx">data</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+        <span class="nt">&lt;/script&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre>
+</div>
+
+
+<p>What this code does is that it creates three buttons on the screen. A color name is assigned to the value attribute of each buttons elements. In the jquery function, once the page is loaded a request is sent to event.php page sending this color value as parameter. The event.php page simply triggers gets the color name by get method and sends a request to OSGiBroker server for triggering an even with the color name on the application.</p>
+
+<p>event.php</p>
+
+<div class="highlight">
+<pre><span class="cp">&lt;?php</span>
+<span class="c1">// Set your return content type</span>
+<span class="c1">//header('Content-type: application/xml');</span>
+
+<span class="nv">$daurl</span> <span class="o">=</span> <span class="s2">"http://localhost:8800/osgibroker/event?topic=tutorial&amp;clientID=tutorial&amp;_method=POST&amp;eventName="</span><span class="o">.</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">'event'</span><span class="p">];</span>
+<span class="k">echo</span> <span class="nv">$daurl</span><span class="p">;</span>
+
+<span class="c1">// Get that website's content</span>
+<span class="nv">$handle</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nv">$daurl</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">);</span>
+
+<span class="c1">// If there is something, read and return</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$handle</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="nb">feof</span><span class="p">(</span><span class="nv">$handle</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nv">$buffer</span> <span class="o">=</span> <span class="nb">fgets</span><span class="p">(</span><span class="nv">$handle</span><span class="p">,</span> <span class="mi">4096</span><span class="p">);</span>
+        <span class="k">echo</span> <span class="nv">$buffer</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nb">fclose</span><span class="p">(</span><span class="nv">$handle</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre>
+</div>
+
+
+<h2>Step 4: Setup application on the coffeshop framework</h2>
+
+<p>To setup the application on the coffeeshop framework, we need to create a new application on the coffeshop framework mainpage.</p>
+
+<p><img src="https://github.com/hmrtk/Coffeshop-HTML5-jQuery-Mobile-Tutorial/blob/master/images/3.PNG?raw=true" alt="Creating a new application of Coffeeshop"></p>
+
+<p>Then we need to fill up the form for creating the new application:</p>
+
+<p><img src="https://github.com/hmrtk/Coffeshop-HTML5-jQuery-Mobile-Tutorial/blob/master/images/4.PNG?raw=true" alt="New application settings"></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Coffeeshop HTML5 tutorial maintained by <a href="https://github.com/hmrtk">hmrtk</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-32717414-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
