@@ -2,10 +2,10 @@
 
 Each step of this tutorial is separated in different directory.
 
-1. [Step 1: Creating a HTML5 page with basic jquery functionalities](#step-1-creating-a-html5-page-with-basic-jquery-functionalities)
-2. [Step 2: Use Osgibroker to interact with the HTML page](#step-2-use-osgibroker-to-interact-with-the-html-page)
-3. [Step 3: Create the Jquery Mobile interface](#step-3-create-the-jquery-mobile-interface)
-4. [Step 4: Setup application on the coffeshop framework](#step-4-setup-application-on-the-coffeshop-framework)
+* [Step 1: Creating a HTML5 page with basic jquery functionalities](#step-1-creating-a-html5-page-with-basic-jquery-functionalities)
+* [Step 2: Use Osgibroker to interact with the HTML page](#step-2-use-osgibroker-to-interact-with-the-html-page)
+* [Step 3: Create the Jquery Mobile interface](#step-3-create-the-jquery-mobile-interface)
+* [Step 4: Setup application on the coffeshop framework](#step-4-setup-application-on-the-coffeshop-framework)
 
 
 
