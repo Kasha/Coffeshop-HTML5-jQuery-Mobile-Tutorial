@@ -5,7 +5,7 @@ Each step of this tutorial is separated in different directory.
 ## Step 1: Creating a HTML5 page with basic jquery functionalities
 
 ### Objective:
-1. create a simple HTML5 page and enable users to change the background color of the Body element by calling a javascript function
+1. create a simple HTML5 page and enable users to change the background color of the Body element by calling a JavaScript function
 
 I start by creating a simple HTML page with basic HTML elements of HTML, HEAD and BODY. I created the index.html page inside the large folder. The code for this step is as follow:
 
@@ -38,9 +38,9 @@ I start by creating a simple HTML page with basic HTML elements of HTML, HEAD an
 </html>
 ```
 
-Here as you can see in the code, line 3 loads the jQuery javascript library into the page and below that is a simple funciton that accepts the colorname parameter and changes the body tag backgroud-color using a switch statement.
+Here as you can see in the code, line 3 loads the jQuery javascript library into the page and below that is a simple function that accepts the colorname parameter and changes the body tag backgroud-color using a switch statement.
 
-To interact with the page you can simply use the develeoper tools of the chrome browser. Open index.html using chrome and open the developer tools by tools -> developer tools (CTRL+SHIFT+J). In the console type the following;
+To interact with the page you can simply use the developer tools of the chrome browser. Open index.html using chrome and open the developer tools by tools -> developer tools (CTRL+SHIFT+J). In the console type the following;
 
 ```javascript
 changeBGColor("red");
@@ -52,25 +52,25 @@ You can see that the background color of the page changes based on the input of 
 1. Use ogibroker interface to interact with the application
 2. Trigger an event on the Tutorial application using the Ogibroker interface
 
-The interact with the application we use the OSGiBroker. OSGiBroker enables developers to easily implment communication between two applications using their REST API. To read more about OSGiBroker on their website [OSGiBroker](http://www.magic.ubc.ca/wiki/pmwiki.php/OSGiBroker/OSGiBrokerOverview).
+To  interact with the application we use the OSGiBroker. OSGiBroker enables developers to easily implment communication between two applications using their REST API. To read more about OSGiBroker on their website [OSGiBroker](http://www.magic.ubc.ca/wiki/pmwiki.php/OSGiBroker/OSGiBrokerOverview).
 
 The OSGiBroker has to be installed on the system, you can read more about how to install the OSGiBroker on ( [installation guid](http://www.magic.ubc.ca/wiki/pmwiki.php/OSGiBroker/Installation) ).
 
-To implement the communication between our applciation and another application we need to use the OSGiBroker REST API. There is a complete instruction on how to use this API found [here](http://magic.ubc.ca/wiki/pmwiki.php/OSGiBroker/Osgibroker-rest). 
+To implement the communication between our application and another application we need to use the OSGiBroker REST API. There is a complete instruction on how to use this API found [here](http://magic.ubc.ca/wiki/pmwiki.php/OSGiBroker/Osgibroker-rest). 
 
-First the application has to be subscribed on the OSGiBroker server on the machine. We can directly go on the link bellow to subcribe to our tutorial application:
+First the application has to be subscribed on the OSGiBroker server on the machine. We can directly go on the link bellow to subscribe to our tutorial application:
 
 ```
 http://localhost:8800/osgibroker/subscribe?topic=tutorial&clientID=tutorial
 ```  
-The two parameters topic and clientID defines the application name and client who used the application. These two parameters have to be sent to http://localhost:8800/osgibroker/subscribe to properly register the application. We can automatically subscribe to the application everytime the page loads by asynchrnously loading this URL in our tutorial application using an ajax call.
+The two parameters topic and clientID defines the application name and client who used the application. These two parameters have to be sent to http://localhost:8800/osgibroker/subscribe to properly register the application. We can automatically subscribe to the application everytime the page loads by asynchronously loading this URL in our tutorial application using an ajax call.
 
 Next, we need to see how we can trigger an event on the OSGiBRoker. For that we can use the URL below:
 
 ```
 http://localhost:8800/osgibroker/event?topic=tutorial&clientID=tutorial&_method=POST&eventName=blue
 ```
-In this url we can trigger an event for the tutorial application on the OSGiBroker by assigning the event's name to the eventName parameter in the URL above. When this URL is requested from the OSGiBroker server the following response is sent to the browser indicating that the event is successfully trigered for the tutorial application.
+In this url we can trigger an event for the tutorial application on the OSGiBroker by assigning the event's name to the eventName parameter in the URL above. When this URL is requested from the OSGiBroker server the following response is sent to the browser indicating that the event is successfully triggered for the tutorial application.
 
 ```xml
 <event timestamp="1339967009799">
@@ -81,7 +81,7 @@ In this url we can trigger an event for the tutorial application on the OSGiBrok
 </event>
 ``` 
 
-Once this event is triggered, it remains on the server for the tutorial applicatin, until the event is retrieved from the application using the URL below:
+Once this event is triggered, it remains on the server for the tutorial application, until the event is retrieved from the application using the URL below:
 
 ```
 http://localhost:8800/osgibroker/event?topic=tutorial&clientID=tutorial&timeOut=1
@@ -203,7 +203,7 @@ you can change the eventName parameter to any other color and you can see how th
 
 ## Step 3: Create the Jquery Mobile interface
 
-For this tutorial, we use [jQuery mobile](http://jquerymobile.com) to build an interface to interact with our application. For that, first we need to creat an applicatin interface using the jquerymobile library. Luckiliy jQuery mobile has an interactive WYSIWG editor to create such an interface available on their website. 
+For this tutorial, we use [jQuery mobile](http://jquerymobile.com) to build an interface to interact with our application. For that, first we need to create an application interface using the jquerymobile library. Luckily jQuery mobile has an interactive WYSIWG editor to create such an interface available on their website. 
 
 ![jQuery mobile editor](https://github.com/hmrtk/Coffeshop-HTML5-jQuery-Mobile-Tutorial/blob/master/images/2.PNG?raw=true)
 
@@ -308,7 +308,7 @@ To setup the application on the coffeeshop framework, we need to create a new ap
 ![Creating a new application of Coffeeshop](https://github.com/hmrtk/Coffeshop-HTML5-jQuery-Mobile-Tutorial/blob/master/images/3.PNG?raw=true)
 
 
-Then we need to fillup the form for creating the new application:
+Then we need to fill up the form for creating the new application:
 
 ![New application settings](https://github.com/hmrtk/Coffeshop-HTML5-jQuery-Mobile-Tutorial/blob/master/images/4.PNG?raw=true)
 
